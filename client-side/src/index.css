@@ -1,6 +1,15 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Custome Fonts */
+@theme {
+  --font-clash: "Clash Display", sans-serif;
+  --font-syne: "Syne", sans-serif;
+  --font-mont-alt: "Montserrat Alternates", sans-serif;
+  --font-mont: "Montserrat", sans-serif;
+  --font-nunito: "Nunito", sans-serif;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -114,6 +123,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
