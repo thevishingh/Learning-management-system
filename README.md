@@ -143,13 +143,4 @@ Feel free to use, modify, and share!
 
 ```
 
----
-
-Let me know if you'd like:
-- A **demo login** section
-- A **"Screenshots"** or **"Live Preview"** section
-- An actual **Postman collection template**
-- A badge for Vercel build status or GitHub actions
-
-You're on the right track — this README gives a great first impression to recruiters and collaborators!
 ```
