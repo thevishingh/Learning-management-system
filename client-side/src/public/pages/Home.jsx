@@ -6,6 +6,7 @@ import FeaturesSectionDemo from "@/components/features-section-demo-1";
 import Teams from "../components/Teams";
 import CircularGallery from "@/Reactbits/CircularGallery/CircularGallery";
 import BestCourses from "../components/BestCourses";
+import FAQ from "../components/Faq";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       <BestCourses />
       <Courses />
       <Teams />
+      <FAQ/>
       <FooterSection />
     </>
   );
