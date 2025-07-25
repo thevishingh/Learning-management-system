@@ -4,6 +4,7 @@ import BorcellaBannerImages from "@/assets/Informative-pages/Banner-page/Borcell
 import BrocellaHomeBanner from "@/assets/Informative-pages/Banner-page/Borcella-home-banner.png";
 import CourseVideoPodcastVideo from "@/assets/Informative-pages/Banner-page/Course-podcast-video-1.mp4";
 import { MarqueeDemo } from "./Marquee";
+import Stats from "./Stats";
 export default function Banner() {
     const fadeInUp = {
         initial: { opacity: 0, y: 30 },
@@ -164,6 +165,12 @@ export default function Banner() {
                 </div>
             </section>
 
+            <Stats />
+
+            <section className="py-12 mx-auto max-w-8xl">
+                <MarqueeDemo />
+            </section>
+
             <section className="flex py-14 items-center justify-center">
                 <div className="container">
                     <div className="grid items-center gap-8 lg:grid-cols-2">
@@ -208,10 +215,6 @@ export default function Banner() {
                         />
                     </div>
                 </div>
-            </section>
-
-            <section className="py-12 mx-auto max-w-8xl">
-                <MarqueeDemo />
             </section>
 
             <section className="flex items-center justify-center">

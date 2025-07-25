@@ -5,6 +5,7 @@ import Courses from "../components/courses";
 import FeaturesSectionDemo from "@/components/features-section-demo-1";
 import Teams from "../components/Teams";
 import CircularGallery from "@/Reactbits/CircularGallery/CircularGallery";
+import BestCourses from "../components/BestCourses";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
           scrollEase={0.02}
         />
       </div>
+      <BestCourses />
       <Courses />
       <Teams />
       <FooterSection />
