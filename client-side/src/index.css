@@ -10,6 +10,23 @@
   --font-nunito: "Nunito", sans-serif;
 }
 
+.bg-top {
+  @apply bg-gradient-to-b from-amber-100 to-green-50;
+}
+
+.bg-bottom {
+  @apply bg-gradient-to-b from-green-50 to-amber-100;
+}
+
+.bg-single-block-top {
+  @apply bg-gradient-to-b from-green-50 to-green-50;
+}
+
+.bg-header {
+  @apply bg-gradient-to-b from-amber-100 to-green-50;
+}
+
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -146,3 +163,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* body{
+  background-color: #fffcf4;
+} */

@@ -13,7 +13,7 @@ export default function Banner() {
 
   return (
     <>
-      <section className="py-2 mx-auto max-w-7xl">
+      <section className="py-2  mx-auto max-w-7xl">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
           {/* Video Section */}
           <div className="flex justify-end ">

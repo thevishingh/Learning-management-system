@@ -46,7 +46,7 @@ const Cards = () => (
 
 const Stats = () => {
     return (
-        <section className="ezy__numbers10 light mx-auto max-w-7xl md:flex md:items-center md:justify-center bg-white dark:bg-[#0b1727] text-zinc-900 dark:text-white">
+        <section className="ezy__numbers10 light mx-auto max-w-7xl md:flex md:items-center md:justify-centerdark:bg-[#0b1727] text-zinc-900 dark:text-white">
             <div className="container px-4 mx-auto">
                 <div className="grid grid-cols-12 gap-6">
                     <div className="col-span-12 md:col-span-6">

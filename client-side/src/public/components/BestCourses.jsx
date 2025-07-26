@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 export default function BestCourses() {
   return (
     <>
-      <section className="pt-22 bg-white dark:bg-[#0b1727] text-zinc-900 dark:text-white">
+      <section className="pt-22 dark:bg-[#0b1727] text-zinc-900 dark:text-white">
         <div className="flex items-center justify-center text-center">
           <div className="flex  flex-col gap-6">
             <h1 className="text-3xl font-bold font-syne lg:text-6xl">
@@ -160,7 +160,7 @@ console.log("Hello, World!");`}
               {/* Course Grid */}
               <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {/* Course Card 1 */}
-                <div className="card border-2 p-2 border-zink-500 rounded-md card-border shadow-2xl ">
+                <div className="card border-2 p-2 bg-amber-50 border-zink-500 rounded-md card-border shadow-2xl ">
                   <figure>
                     <img
                       src={DataScience}
@@ -181,7 +181,7 @@ console.log("Hello, World!");`}
                 </div>
 
                 {/* Course Card 2 */}
-                <div className="card border-2 p-2 border-zink-500 rounded-md card-border shadow-2xl ">
+                <div className="card border-2 p-2 bg-amber-50 border-zink-500 rounded-md card-border shadow-2xl ">
                   <figure>
                     <img
                       src={Robotics}
@@ -200,7 +200,7 @@ console.log("Hello, World!");`}
                 </div>
 
                 {/* Course Card 3 */}
-                <div className="card border-2 p-2 border-zink-500 rounded-md card-border shadow-2xl ">
+                <div className="card border-2 p-2 bg-amber-50 border-zink-500 rounded-md card-border shadow-2xl ">
                   <figure>
                     <img
                       src={CloudComputing}

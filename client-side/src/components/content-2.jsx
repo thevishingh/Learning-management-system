@@ -5,10 +5,10 @@ export default function ContentSection() {
   return (
     <section className="py-16 md:py-32">
       <div className="mx-auto max-w-7xl space-y-8 px-6 md:space-y-16">
-        <h2 className="relative z-10 font-mont-alt capitalize max-w-xl text-4xl font-semibold lg:text-5xl">
+        <h2 className="relative z-10 font-mont-alt capitalize max-w-4xl text-4xl font-semibold lg:text-5xl">
           Empower Learning with Borcella’s Smart LMS Ecosystem
         </h2>
-        <div className="relative">
+        <div className="relative p-2">
           <div className="relative z-10 space-y-4 md:w-1/2">
             <p className="text-body font-mont">
               Borcella isn't just a learning platform it's your partner in

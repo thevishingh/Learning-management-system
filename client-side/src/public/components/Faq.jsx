@@ -62,7 +62,7 @@ const FAQ = () => {
   };
 
   return (
-    <section className="ezy__faq8 light py-14 md:pb-14 pt-0 bg-white dark:bg-[#0b1727] text-zinc-900 dark:text-white">
+    <section className="ezy__faq8 light py-14 md:pb-14 pt-0 dark:bg-[#0b1727] text-zinc-900 dark:text-white">
       <div className="container px-16 md:px-8 lg:px-28">
         <div className="grid grid-cols-12 justify-between gap-6">
           <div className="col-span-12 md:col-span-5">

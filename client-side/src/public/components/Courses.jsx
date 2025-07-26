@@ -5,7 +5,7 @@ import React from "react";
 export default function Courses() {
   return (
     <>
-      <section className="my-10">
+      <section >
         <ContentSection />
         <div className="pt-20">
           <LogoCloud />
