@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import Banner from "../components/Banner";
 import FooterSection from "@/components/footer";
 import Courses from "../components/courses";
@@ -7,7 +6,6 @@ import Teams from "../components/Teams";
 import CircularGallery from "@/Reactbits/CircularGallery/CircularGallery";
 import BestCourses from "../components/BestCourses";
 import FAQ from "../components/Faq";
-import IntegrationsSection from "@/components/integrations-3";
 import PricingPages from "../components/PricingPages";
 import CallToActionSection from "../components/Cta";
 import Header2 from "@/components/mvpblocks/header-2";
@@ -15,7 +13,6 @@ import Header2 from "@/components/mvpblocks/header-2";
 export default function Home() {
   return (
     <>
-      <Header2/>
       <section className="bg-top">
         <Banner />
       </section>
@@ -39,20 +36,17 @@ export default function Home() {
         <Courses />
       </section>
       <section className="bg-bottom">
-      <Teams />
+        <Teams />
       </section>
       <section className="bg-top">
-           <FAQ />
-   </section>
+        <FAQ />
+      </section>
       <section className="bg-bottom">
-         <PricingPages />
-     </section>
+        <PricingPages />
+      </section>
       <section className="bg-top">
-              <CallToActionSection />
-</section>
-      <section className="bg-bottom">
-          <FooterSection />
-    </section>
+        <CallToActionSection />
+      </section>
     </>
   );
 }
