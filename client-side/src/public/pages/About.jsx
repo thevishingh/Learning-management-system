@@ -54,6 +54,76 @@ export default function About() {
           </div>
         </section>
       </div>
+
+      <section className="overflow-hidden py-16 sm:py-20 lg:py-24 bg-bottom">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 xl:gap-24 items-center">
+            {/* Left Column - Image */}
+            <div className="flex justify-center">
+              <img
+                src="https://cdn.flyonui.com/fy-assets/blocks/marketing-ui/about/about-3.png"
+                alt="Mobile App Interface"
+                className="max-w-md lg:max-w-xl"
+              />
+            </div>
+
+            {/* Right Column - Content */}
+            <div className="space-y-6 max-md:px-6">
+              <h2 className="text-3xl font-bold text-gray-900 lg:text-4xl">
+                The Adventure of Our Success
+              </h2>
+              <p className="text-gray-600 text-lg">
+                Our achievement story stands as a powerful testament to teamwork
+                and perseverance. United, we have faced challenges, celebrated
+                milestones, and woven a narrative of growth and success.
+              </p>
+
+              {/* Stats Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
+                {/* Stat Item */}
+                {[
+                  { icon: "download", label: "Downloads", value: "17M+" },
+                  { icon: "users", label: "Followers", value: "08M+" },
+                  { icon: "message", label: "Reviews", value: "2300+" },
+                  { icon: "devices", label: "Couriers", value: "150+" },
+                ].map(({ icon, label, value }, i) => (
+                  <div
+                    key={i}
+                    className="bg-white border border-gray-200 rounded-lg shadow-sm p-4 flex items-center gap-4 transition hover:shadow-md"
+                  >
+                    <div className="bg-primary/10 p-3 rounded-full text-primary">
+                      <span className={`icon-[tabler--${icon}] text-xl`} />
+                    </div>
+                    <div>
+                      <div className="text-lg font-semibold text-gray-900">
+                        {value}
+                      </div>
+                      <div className="text-sm text-gray-500">{label}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Action Buttons */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10">
+                <a
+                  href="#"
+                  className="bg-primary text-white text-center py-3 px-6 rounded-md font-semibold hover:bg-primary/90 transition"
+                >
+                  Start Free Trial
+                </a>
+                <a
+                  href="#"
+                  className="bg-primary text-white flex items-center justify-center py-3 px-6 rounded-md font-semibold hover:bg-primary/90 transition"
+                >
+                  Watch Demo
+                  <span className="icon-[tabler--play] ml-2 text-base" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
