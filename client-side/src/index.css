@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-
 /* Custome Fonts */
 @theme {
   --font-clash: "Clash Display", sans-serif;
@@ -42,7 +41,6 @@
     }
   }
 }
-
 
 @custom-variant dark (&:is(.dark *));
 
