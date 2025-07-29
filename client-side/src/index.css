@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@plugin "flyonui";
 
 
 /* Custome Fonts */
@@ -26,6 +25,22 @@
 
 .bg-header {
   @apply bg-gradient-to-b from-amber-100 to-green-50;
+}
+
+@layer utilities {
+  .animate-glow {
+    background-size: 200% 200%;
+    animation: glow 6s ease-in-out infinite;
+  }
+
+  @keyframes glow {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
 }
 
 

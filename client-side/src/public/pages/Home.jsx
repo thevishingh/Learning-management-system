@@ -1,5 +1,4 @@
 import Banner from "../components/Banner";
-import FooterSection from "@/components/footer";
 import Courses from "../components/courses";
 import FeaturesSectionDemo from "@/components/features-section-demo-1";
 import Teams from "../components/Teams";

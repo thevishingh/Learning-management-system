@@ -7,12 +7,12 @@ import Logo from "@/assets/Logo.png"
 
 
 const navItems = [
-  { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
-  { name: 'Solutions', href: '/solutions' },
-  { name: 'Pricing', href: '/pricing' },
-  { name: 'Resources', href: '/resources' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'Home', to: '/' },
+  { name: 'About', to: '/about' },
+  { name: 'Solutions', to: '/solutions' },
+  { name: 'Pricing', to: '/pricing' },
+  { name: 'Resources', to: '/resources' },
+  { name: 'Contact', to: '/contact' },
 ];
 
 export default function Header2() {
@@ -88,7 +88,7 @@ export default function Header2() {
               variants={itemVariants}
               whileHover={{ scale: 1.02 }}
               transition={{ type: 'spring', stiffness: 400, damping: 25 }}>
-              <Link href="/" className="flex items-center space-x-3">
+              <Link to="/" className="flex items-center space-x-3">
               <img src={Logo} alt="Logo" className='w-25 h-25' />
               </Link>
             </motion.div>
@@ -102,7 +102,7 @@ export default function Header2() {
                   onMouseEnter={() => setHoveredItem(item.name)}
                   onMouseLeave={() => setHoveredItem(null)}>
                   <Link
-                    href={item.href}
+                    to={item.to}
                     className="text-foreground/80 font-mont-alt capitalize hover:text-white relative rounded-lg px-4 py-2 text-sm font-semibold transition-colors duration-200">
                     {hoveredItem === item.name && (
                       <motion.div
@@ -132,14 +132,14 @@ export default function Header2() {
               </motion.button>
 
               <Link
-                href="/login"
+                to="/login"
                 className="text-foreground/80 font-mont-alt capitalize hover:text-foreground px-4 py-2 text-sm font-medium transition-colors duration-200">
                 Sign In
               </Link>
 
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <Link
-                  href="/signup"
+                  to="/signup"
                   className="bg-foreground font-mont-alt capitalize text-background hover:bg-foreground/90 inline-flex items-center space-x-2 rounded-lg px-5 py-2.5 text-sm font-medium shadow-sm transition-all duration-200">
                   <span>Get Started</span>
                   <ArrowRight className="h-4 w-4" />
@@ -181,7 +181,7 @@ export default function Header2() {
                   {navItems.map((item) => (
                     <motion.div key={item.name} variants={mobileItemVariants}>
                       <Link
-                        href={item.href}
+                        to={item.to}
                         className="text-foreground font-syne text-sm tracking-wider hover:bg-muted block rounded-lg px-4 py-3 font-medium transition-colors duration-200"
                         onClick={() => setIsMobileMenuOpen(false)}>
                         {item.name}
@@ -194,13 +194,13 @@ export default function Header2() {
                   className="border-border space-y-3 border-t pt-6"
                   variants={mobileItemVariants}>
                   <Link
-                    href="/login"
+                    to="/login"
                     className="text-foreground font-mont-alt hover:bg-muted block w-full rounded-lg py-3 text-center font-medium transition-colors duration-200"
                     onClick={() => setIsMobileMenuOpen(false)}>
                     Sign In
                   </Link>
                   <Link
-                    href="/signup"
+                    to="/signup"
                     className="bg-foreground font-mont-alt text-background hover:bg-foreground/90 block w-full rounded-lg py-3 text-center font-medium transition-all duration-200"
                     onClick={() => setIsMobileMenuOpen(false)}>
                     Get Started
