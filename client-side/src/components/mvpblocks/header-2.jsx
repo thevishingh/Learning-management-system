@@ -9,7 +9,7 @@ import Logo from "@/assets/Logo.png"
 const navItems = [
   { name: 'Home', to: '/' },
   { name: 'About', to: '/about' },
-  { name: 'Solutions', to: '/solutions' },
+  { name: 'Courses', to: '/courses' },
   { name: 'Pricing', to: '/pricing' },
   { name: 'Resources', to: '/resources' },
   { name: 'Contact', to: '/contact' },
@@ -132,7 +132,7 @@ export default function Header2() {
               </motion.button>
 
               <Link
-                to="/login"
+                to="/singin"
                 className="text-foreground/80 font-mont-alt capitalize hover:text-foreground px-4 py-2 text-sm font-medium transition-colors duration-200">
                 Sign In
               </Link>
@@ -194,7 +194,7 @@ export default function Header2() {
                   className="border-border space-y-3 border-t pt-6"
                   variants={mobileItemVariants}>
                   <Link
-                    to="/login"
+                    to="/singin"
                     className="text-foreground font-mont-alt hover:bg-muted block w-full rounded-lg py-3 text-center font-medium transition-colors duration-200"
                     onClick={() => setIsMobileMenuOpen(false)}>
                     Sign In
