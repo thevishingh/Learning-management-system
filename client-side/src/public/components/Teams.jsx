@@ -1,4 +1,3 @@
-import { PointerHighlight } from "@/components/ui/pointer-highlight";
 import React from "react";
 import Carasoul from "./Carasoul";
 
