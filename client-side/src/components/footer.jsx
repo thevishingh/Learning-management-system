@@ -57,7 +57,7 @@ export default function FooterSection() {
           </Link>
           <div className="flex flex-wrap justify-center gap-6 text-sm">
             <Link
-              href="#"
+              to=""
               target="_blank"
               rel="noopener noreferrer"
               aria-label="X/Twitter"
@@ -77,7 +77,7 @@ export default function FooterSection() {
               </svg>
             </Link>
             <Link
-              href="#"
+              to=""
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -97,7 +97,7 @@ export default function FooterSection() {
               </svg>
             </Link>
             <Link
-              href="#"
+              to=""
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
@@ -117,7 +117,7 @@ export default function FooterSection() {
               </svg>
             </Link>
             <Link
-              href="#"
+              to=""
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Threads"
@@ -142,7 +142,7 @@ export default function FooterSection() {
               </svg>
             </Link>
             <Link
-              href="#"
+              to=""
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -162,7 +162,7 @@ export default function FooterSection() {
               </svg>
             </Link>
             <Link
-              href="#"
+              to=""
               target="_blank"
               rel="noopener noreferrer"
               aria-label="TikTok"
@@ -193,7 +193,7 @@ export default function FooterSection() {
                 {link.items.map((item, index) => (
                   <Link
                     key={index}
-                    href={item.href}
+                    to={item.href}
                     className="text-muted-foreground tracking-normal font-mont-alt font-medium capitalize hover:text-primary block duration-150"
                   >
                     <span>{item.title}</span>
