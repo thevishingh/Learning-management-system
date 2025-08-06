@@ -1,12 +1,33 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 import Lottie from "lottie-react";
 import loginAnimation from "@/assets/Informative-pages/Banner-page/Loginverification.json";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Register() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+    reset,
+  } = useForm({ mode: "onChange" });
+
+  const onSubmit = (data) => {
+    console.log("Form Submitted:", data);
+    toast.success("Registration Successful 🎉", {
+      position: "top-right",
+      autoClose: 3000,
+    });
+    reset();
+  };
+
   return (
     <>
+      <ToastContainer />
       <div className="flex h-screen">
+        {/* Lottie Animation Section */}
         <div className="hidden lg:flex items-center justify-center flex-1 bg-top text-black">
           <div className="max-w-md text-center">
             <Lottie
@@ -23,11 +44,15 @@ export default function Register() {
             </p>
           </div>
         </div>
+
+        {/* Form Section */}
         <div className="w-full bg-top lg:w-1/2 flex items-center justify-center">
           <div className="max-w-md w-full border shadow-2xl rounded-2xl p-6">
             <h1 className="text-3xl font-semibold mb-6 text-black font-mont-alt capitalize text-center">
               Sign In
             </h1>
+
+            {/* Social Auth Buttons */}
             <div className="mt-4 flex flex-col lg:flex-row items-center justify-between">
               <div className="w-full lg:w-1/2 mb-2 lg:mb-0">
                 <button
@@ -77,27 +102,49 @@ export default function Register() {
                 </button>
               </div>
             </div>
+
+            {/* OR with email */}
             <div className="mt-4 font-mont-alt text-sm text-gray-600 text-center">
               <p>or with email</p>
             </div>
-            <form action="#" method="POST" className="space-y-4">
+
+            {/* Form */}
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 mt-2">
+              {/* Email */}
               <div>
                 <label
-                  for="email"
+                  htmlFor="email"
                   className="block font-mont text-sm font-medium text-gray-700"
                 >
                   Email
                 </label>
                 <input
-                  type="text"
+                  type="email"
                   id="email"
-                  name="email"
-                  className="mt-1 font-mont p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300"
+                  {...register("email", {
+                    required: "Email is required",
+                    pattern: {
+                      value: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,
+                      message: "Enter a valid email address",
+                    },
+                  })}
+                  className={`mt-1 font-mont p-2 w-full border rounded-md focus:outline-none focus:ring-2 transition duration-300 ${
+                    errors.email
+                      ? "border-red-500 ring-red-300"
+                      : "focus:border-gray-200 focus:ring-gray-300"
+                  }`}
                 />
+                {errors.email && (
+                  <p className="text-red-600 text-xs mt-1 font-mont-alt">
+                    {errors.email.message}
+                  </p>
+                )}
               </div>
+
+              {/* Password */}
               <div>
                 <label
-                  for="password"
+                  htmlFor="password"
                   className="block font-mont text-sm font-medium text-gray-700"
                 >
                   Password
@@ -105,23 +152,51 @@ export default function Register() {
                 <input
                   type="password"
                   id="password"
-                  name="password"
-                  className="mt-1 font-mont p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300"
+                  {...register("password", {
+                    required: "Password is required",
+                    pattern: {
+                      value: /^(?=.*[a-zA-Z\d@$!%*?&]).{8,}$/,
+                      message:
+                        "Password must be at least 8 characters and include at least one lowercase, uppercase, number, or special character",
+                    },
+                  })}
+                  className={`mt-1 font-mont p-2 w-full border rounded-md focus:outline-none focus:ring-2 transition duration-300 ${
+                    errors.password
+                      ? "border-red-500 ring-red-300"
+                      : "focus:border-gray-200 focus:ring-gray-300"
+                  }`}
                 />
+                {errors.password && (
+                  <p className="text-red-600 text-xs mt-1 font-mont-alt">
+                    {errors.password.message}
+                  </p>
+                )}
               </div>
+
+              {/* Submit Button */}
               <div>
                 <button
                   type="submit"
-                  className="w-full font-mont-alt bg-black text-white p-2 rounded-md hover:bg-gray-800 focus:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300"
+                  disabled={!isValid}
+                  className={`w-full cursor-pointer font-mont-alt p-2 rounded-md text-white transition-colors duration-300 ${
+                    isValid
+                      ? "bg-black hover:bg-gray-800 focus:bg-black"
+                      : "bg-gray-400 cursor-not-allowed"
+                  }`}
                 >
                   Sign Up
                 </button>
               </div>
             </form>
+
+            {/* Footer Link */}
             <div className="mt-4 text-sm font-mont-alt text-gray-600 text-center">
               <p>
                 Already have an account?{" "}
-                <Link to="/signup" className="text-red-600 font-medium hover:underline">
+                <Link
+                  to="/signup"
+                  className="text-red-600 font-medium hover:underline"
+                >
                   Register here
                 </Link>
               </p>

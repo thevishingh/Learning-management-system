@@ -1,9 +1,59 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
+import { toast } from "react-toastify";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import loginAnimation from "@/assets/Informative-pages/Banner-page/Registerverification.json";
 
 export default function Register() {
+  // Navigate
+  const navigate = useNavigate();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm({
+    mode: "onChange",
+  });
+
+  // const onSubmit = async (data) => {
+  //   try {
+  //     const response = await axios.post("/api/auth/register", data);
+
+  //     if (response.status === 201) {
+  //       toast.success("Registered successfully!");
+  //       navigate("/");
+  //     }
+  //   } catch (error) {
+  //     if (error.response?.data?.message) {
+  //       toast.error(error.response.data.message);
+  //     } else {
+  //       toast.error("Something went wrong. Please try again.");
+  //     }
+  //   }
+  // };
+
+  const onSubmit = async (data) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/auth/register",
+        data
+      );
+      if (response.status === 201) {
+        toast.success("Registered successfully!");
+        navigate("/");
+      }
+    } catch (error) {
+      toast.error(
+        error?.response?.data?.message ||
+          "Registration failed. Please try again."
+      );
+    }
+  };
+
   return (
     <>
       <div className="flex h-screen">
@@ -28,6 +78,7 @@ export default function Register() {
             <h1 className="text-3xl font-semibold mb-6 text-black font-mont-alt capitalize text-center">
               Sign Up
             </h1>
+
             <div className="mt-4 flex flex-col lg:flex-row items-center justify-between">
               <div className="w-full lg:w-1/2 mb-2 lg:mb-0">
                 <button
@@ -77,41 +128,71 @@ export default function Register() {
                 </button>
               </div>
             </div>
+
             <div className="mt-4 font-mont-alt text-sm text-gray-600 text-center">
               <p>or with email</p>
             </div>
-            <form action="#" method="POST" className="space-y-4">
+
+            {/* Form Starts */}
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+              {/* Username Field */}
               <div>
                 <label
-                  for="username"
+                  htmlFor="userName"
                   className="block font-mont text-sm font-medium text-gray-700"
                 >
                   Username
                 </label>
                 <input
                   type="text"
-                  id="username"
-                  name="username"
+                  id="userName"
+                  {...register("userName", {
+                    required: "Username is required",
+                    minLength: {
+                      value: 3,
+                      message: "Minimum 3 characters required",
+                    },
+                  })}
                   className="mt-1 font-mont p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300"
                 />
+                {errors.userName && (
+                  <p className="text-sm text-red-600 mt-1">
+                    {errors.userName.message}
+                  </p>
+                )}
               </div>
+
+              {/* Email Field */}
               <div>
                 <label
-                  for="email"
+                  htmlFor="userEmail"
                   className="block font-mont text-sm font-medium text-gray-700"
                 >
                   Email
                 </label>
                 <input
-                  type="text"
-                  id="email"
-                  name="email"
+                  type="email"
+                  id="userEmail"
+                  {...register("userEmail", {
+                    required: "Email is required",
+                    pattern: {
+                      value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                      message: "Enter a valid email address",
+                    },
+                  })}
                   className="mt-1 font-mont p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300"
                 />
+                {errors.userEmail && (
+                  <p className="text-sm text-red-600 mt-1">
+                    {errors.userEmail.message}
+                  </p>
+                )}
               </div>
+
+              {/* Password Field */}
               <div>
                 <label
-                  for="password"
+                  htmlFor="password"
                   className="block font-mont text-sm font-medium text-gray-700"
                 >
                   Password
@@ -119,19 +200,43 @@ export default function Register() {
                 <input
                   type="password"
                   id="password"
-                  name="password"
+                  {...register("password", {
+                    required: "Password is required",
+                    pattern: {
+                      value:
+                        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&^])[A-Za-z\d@$!%*#?&^]{8,}$/,
+                      message:
+                        "Password must be 8+ characters, with letters, numbers & special characters",
+                    },
+                  })}
                   className="mt-1 font-mont p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300"
                 />
+                {errors.password && (
+                  <p className="text-sm text-red-600 mt-1">
+                    {errors.password.message}
+                  </p>
+                )}
               </div>
+
+              {/* Hidden Role Field */}
+              <input type="hidden" value="user" {...register("role")} />
+
+              {/* Submit Button */}
               <div>
                 <button
                   type="submit"
-                  className="w-full font-mont-alt bg-black text-white p-2 rounded-md hover:bg-gray-800 focus:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300"
+                  disabled={!isValid}
+                  className={`w-full font-mont-alt cursor-pointer p-2 rounded-md transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 ${
+                    isValid
+                      ? "bg-black text-white hover:bg-gray-800"
+                      : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                  }`}
                 >
                   Sign Up
                 </button>
               </div>
             </form>
+
             <div className="mt-4 text-sm font-mont-alt text-gray-600 text-center">
               <p>
                 Already have an account?{" "}
