@@ -12,13 +12,11 @@ const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI;
 
 // Cors Policy
-app.use(
-  cors({
-    origin: process.env.CLIENT_URL || "*", // fallback to allow all during dev
-    methods: ["GET", "DELETE", "PUT", "POST"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
+app.use(cors({
+  origin: process.env.CLIENT_URL || "*",
+  methods: ["GET", "DELETE", "PUT", "POST"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+}));
 
 
 // App Middleware
