@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import PublicLayout from "@/layouts/PublicLayout";
-import UserLayout from "@/layouts/UserLayout";
-import TutorLayout from "@/layouts/TutorLayout";
+// import UserLayout from "@/layouts/UserLayout";
+// import TutorLayout from "@/layouts/TutorLayout";
 import ProtectedRoute from "@/routes/ProtectedRoute";
 
 // Public pages
@@ -15,8 +15,8 @@ import Register from "@/public/pages/Register";
 import ComingSoonPage from "@/public/pages/ComingSoonPage";
 
 // User/Tutor Dashboard Pages
-import UserDashboard from "@/dashboard/user/UserDashboard";
-import TutorDashboard from "@/dashboard/tutor/TutorDashboard";
+// import UserDashboard from "@/dashboard/user/UserDashboard";
+// import TutorDashboard from "@/dashboard/tutor/TutorDashboard";
 
 const AppRoutes = () => {
   return (
@@ -33,19 +33,8 @@ const AppRoutes = () => {
         <Route path="*" element={<ComingSoonPage />} />
       </Route>
 
-      {/* Protected Routes - User */}
-      <Route element={<ProtectedRoute allowedRoles={['user']} />}>
-        <Route element={<UserLayout />}>
-          <Route path="/user/dashboard" element={<UserDashboard />} />
-        </Route>
-      </Route>
-
-      {/* Protected Routes - Tutor */}
-      <Route element={<ProtectedRoute allowedRoles={['tutor']} />}>
-        <Route element={<TutorLayout />}>
-          <Route path="/tutor/dashboard" element={<TutorDashboard />} />
-        </Route>
-      </Route>
+    
+     
     </Routes>
   );
 };
